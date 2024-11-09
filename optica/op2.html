@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óptica Rossalex</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f0f8ff, #e0f7fa);
+        }
+        header {
+            background-color: #0033cc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav a {
+            color: #ffcc00; /* Color amarillo para destacar */
+            margin-right: 15px;
+            font-weight: bold; /* Texto en negrita */
+            text-decoration: underline; /* Subrayado para más visibilidad */
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #fff; /* Cambio de color al pasar el mouse */
+        }
+        .container {
+            padding: 20px;
+        }
+        h2 {
+            color: #0033cc;
+            text-align: center;
+        }
+        p {
+            background-color: #ffeb3b; /* Fondo amarillo suave */
+            padding: 15px;
+            border-radius: 5px;
+            text-align: justify;
+        }
+        .slider {
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ffcc00; /* Borde amarillo */
+            border-radius: 10px; /* Esquinas redondeadas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .button {
+            background-color: #0033cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave para botones */
+            transition: background-color 0.3s; /* Transición suave */
+            margin: 5px; /* Espaciado entre botones */
+        }
+        .button:hover {
+            background-color: #0056b3; /* Color más claro al pasar el mouse */
+        }
+        .testimonials {
+            background-color: #ffcc00; /* Fondo amarillo más intenso */
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .feedback {
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0033cc;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .feedback textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        footer p {
+            color: black; /* Cambiar color de texto a negro en el footer */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Óptica Rossalex</h1>
+    <nav>
+        <a href="Probable.html">Lentes y Micas</a>
+    </nav>
+</header>
+
+<main class="container">
+    <h2 id="bienvenida">Bienvenida</h2>
+    <p>Bienvenido a Óptica Rossalex! Nos enorgullece ser tu destino de confianza para el cuidado visual y la moda óptica. Ofrecemos una amplia gama de lentes y gafas de sol para todas tus necesidades.</p>
+
+    <h2 id="sobre-nosotros">Sobre Nosotros</h2>
+    <p>En Óptica Rossalex nos dedicamos a ofrecer la mejor atención y productos de calidad para cuidar de tu visión. Nuestro equipo está compuesto por profesionales altamente capacitados, listos para asesorarte en cada paso.</p>
+
+    <h2 id="galeria">Galería de Imágenes</h2>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="E:\Optica\Imagenes\WhatsApp Image 2024-11-03 at 6.28.24 PM.jpeg" alt="Descripción de imagen 1" style="width:100%;"></div>
+            <div class="slide"><img src="E:\Optica\Imagenes\WhatsApp Image 2024-11-03 at 6.28.24 PM (2).jpeg" alt="Descripción de imagen 2" style="width:100%;"></div>
+            <div class="slide"><img src="E:\Optica\Imagenes\WhatsApp Image 2024-11-03 at 6.28.24 PM (1).jpeg" alt="Descripción de imagen 3" style="width:100%;"></div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button" onclick="prevSlide()">Anterior</button>
+        <button class="button" onclick="nextSlide()">Siguiente</button>
+    </div>
+
+    <h2 id="testimonios">Testimonios</h2>
+    <div class="testimonials">
+        <p><strong>María:</strong> ¡Excelente atención y productos de calidad! Estoy muy satisfecha con mis lentes.</p>
+        <p><strong>Carlos:</strong> Un lugar confiable para cuidar de mi visión. Recomiendo ampliamente.</p>
+        <h3>Deja tu Opinión</h3>
+        <div class="feedback">
+            <textarea placeholder="Escribe tu opinión aquí..."></textarea>
+            <button class="button">Enviar Opinión</button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>Contacta con nosotros: Alejandro Macias | Tel: 7223332122</p>
+</footer>
+
+<script>
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = index;
+        }
+        slides.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+</script>
+
+</body>
+</html>
